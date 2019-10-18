@@ -1,0 +1,32 @@
+{
+  "name": "movie-server",
+  "version": "1.0.0",
+  "description": "node demo",
+  "main": "main.js",
+  "dependencies": {
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "mongodb": "^3.3.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=dev nodemon ./main.js",
+    "prd": "cross-env NODE_ENV=production nodemon ./bin/api.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ILTSvm/node-movie-server.git"
+  },
+  "keywords": [
+    "node",
+    "movie"
+  ],
+  "author": "wgz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ILTSvm/node-movie-server/issues"
+  },
+  "homepage": "https://github.com/ILTSvm/node-movie-server#readme"
+}

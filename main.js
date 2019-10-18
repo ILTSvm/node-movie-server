@@ -11,13 +11,15 @@ const mock = userId => ({
   }
 })
 
-http.createServer(function(req,res){
+http.createServer((req,res)=>{
 	res.setHeader('Content-Type', 'application/json;charset=utf-8');
 	const reqUrl = url.parse(req.url);
 	if(reqUrl['pathname'] === '/api/user/login'){
 			const uid = qs.parse(reqUrl.query).userId;
 			const result = JSON.stringify(mock(uid));
 			res.end(result);
+	}else if(reqUrl['pathname'] === '/'){
+		res.end(''); 
 	}else {
 			res.writeHead(404);
 			res.end('NotFund');
