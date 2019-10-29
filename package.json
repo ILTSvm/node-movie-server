@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
-    "mongodb": "^3.3.3"
+    "mongodb": "^3.3.3",
+    "mongoose": "^5.7.7"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/ILTSvm/node-movie-server/issues"
   },
-  "homepage": "https://github.com/ILTSvm/node-movie-server#readme"
+  "homepage": "https://github.com/ILTSvm/node-movie-server#readme",
+  "bin": {
+    "movie-server": "server.js"
+  }
 }
