@@ -4,13 +4,6 @@ const url = require('url');
 const qs = require('querystring');
 const { registerQuest } = require('./src/controller/user/index');
 const { returnData } = require('./src/conf/connect');
-const mock = userId => ({
-  success: true,
-  data: {
-    userId,
-    date: new Date(),
-  }
-})
 
 http.createServer(async (req,res)=>{
 	res.setHeader('Content-Type', 'application/json;charset=utf-8');
