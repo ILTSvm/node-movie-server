@@ -2,7 +2,8 @@ let http = require('http');
 let api = require ('./server/api')
 const url = require('url');
 const qs = require('querystring');
-const { registerQuest } = require('./src/db/insert')
+const { registerQuest } = require('./src/db/insert');
+const { returnData } = require('./src/conf/connect');
 const mock = userId => ({
   success: true,
   data: {
@@ -16,7 +17,8 @@ http.createServer(async (req,res)=>{
 	const reqUrl = url.parse(req.url);
 	if(reqUrl['pathname'] === '/api/user/login'){
 			const uid = qs.parse(reqUrl.query).userId;
-			const result = JSON.stringify(mock(uid));
+			let result = await returnData(uid);
+			result = JSON.stringify(result);
 			res.end(result);
 	}else if(reqUrl['pathname'] === '/'){
 		res.end(''); 
@@ -27,6 +29,7 @@ http.createServer(async (req,res)=>{
 		}) 
 		req.on('end', async ()=>{
 			const result = await registerQuest(JSON.parse(userQuery));
+			console.log(result,'result')
 			res.end(JSON.stringify(result));
 		})
 	}else { 
