@@ -4,12 +4,12 @@ const url = require('url');
 const qs = require('querystring');
 const { registerQuest } = require('./src/controller/user/index');
 const { returnData } = require('./src/conf/connect');
-
+const { requestApi } = require('./src/router/router_map')
 http.createServer(async (req,res)=>{
 	res.setHeader('Content-Type', 'application/json;charset=utf-8');
 	const reqUrl = url.parse(req.url);
+	requestApi(reqUrl, req, res)
 	if(reqUrl['pathname'] === '/api/user/login'){
-			const uid = qs.parse(reqUrl.query).userId;
 			let result = await returnData(uid);
 			result = JSON.stringify(result);
 			res.end(result);
