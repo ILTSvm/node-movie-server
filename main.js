@@ -2,7 +2,7 @@ let http = require('http');
 let api = require ('./server/api')
 const url = require('url');
 const qs = require('querystring');
-const { registerQuest } = require('./src/db/insert');
+const { registerQuest } = require('./src/controller/user/index');
 const { returnData } = require('./src/conf/connect');
 const mock = userId => ({
   success: true,
