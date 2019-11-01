@@ -10,7 +10,7 @@ http.createServer(async (req,res)=>{
 	const reqUrl = url.parse(req.url);
 	requestApi(reqUrl, req, res)
 	if(reqUrl['pathname'] === '/api/user/login'){
-			let result = await returnData(uid);
+			let result = await returnData();
 			result = JSON.stringify(result);
 			res.end(result);
 	}else if(reqUrl['pathname'] === '/'){
