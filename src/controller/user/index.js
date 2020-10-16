@@ -24,6 +24,16 @@ const registerQuest = async (userQuery) => {
   }
 }
 
+const userInfoSave = async (userQuery) => {
+  let userList = await findUserExist({ 
+    username: userQuery['username'] 
+  })
+  let userData = new UserModel({
+    name: userQuery['name'],
+    mobile: userQuery['mobile'],
+    address: userQuery['address'],
+  })
+}
 module.exports = {
   findUserExist: findUserExist,
   registerQuest: registerQuest,

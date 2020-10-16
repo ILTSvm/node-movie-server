@@ -8,7 +8,13 @@ let UserSchema = new mongoose.Schema({
   },
   password: String,
 })
+
+let UserInfoSchema = new mongoose.Schema({
+  name: String,
+  phone: Number,
+})
 mongoose.set('useCreateIndex', true);
 module.exports = {
-  UserSchema: UserSchema,
+  UserSchema,
+  UserInfoSchema,
 }
