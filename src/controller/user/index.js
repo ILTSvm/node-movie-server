@@ -34,7 +34,20 @@ const userInfoSave = async (userQuery) => {
     address: userQuery['address'],
   })
 }
+const loginQuest = async (userQuery) => {
+  let userList = await findUserExist({ 
+    username: userQuery['username'],
+    password: userQuery['password']
+  })
+  if (userList.length === 0) {
+    return returnData({},'登陆成功')
+  } else {
+    return errorThrow('登录失败');
+  }
+}
+
 module.exports = {
   findUserExist: findUserExist,
   registerQuest: registerQuest,
+  loginQuest: loginQuest,
 }
