@@ -1,16 +1,17 @@
 const api = require('../controller/index')
 const url = require('url')
-let apiMap = {
-
-}
 module.exports = {
   commonFlag: '/api',
   requestApi: async (route, req, res) => {
-    const reqUrl = url.parse(req.url);
-    switch(`${this.commonFlag}${route}`){
-      case `${this.commonFlag}/user`: {
-        await api.registerQuest()
-      }
-    }
+    const reqUrl = route.substring(4);
+    let userQuery = '';
+    req.on('data', chunk => {
+			userQuery += chunk;
+		})
+		req.on('end', async ()=>{
+			const result = await api[reqUrl](JSON.parse(userQuery));
+			console.log(result,'result')
+			res.end(JSON.stringify(result));
+		})
   }
 }

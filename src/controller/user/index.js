@@ -34,6 +34,7 @@ const userInfoSave = async (userQuery) => {
     address: userQuery['address'],
   })
 }
+
 const loginQuest = async (userQuery) => {
   let userList = await findUserExist({ 
     username: userQuery['username'],
@@ -47,7 +48,7 @@ const loginQuest = async (userQuery) => {
 }
 
 module.exports = {
-  findUserExist: findUserExist,
-  registerQuest: registerQuest,
-  loginQuest: loginQuest,
+  '/user/info': findUserExist,
+  '/user/register': registerQuest,
+  '/user/login': loginQuest,
 }

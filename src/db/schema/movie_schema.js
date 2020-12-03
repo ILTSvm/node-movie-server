@@ -6,7 +6,7 @@ let MovieSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  info: String,
+  dec: String,
 })
 
 mongoose.set('useCreateIndex', true);
