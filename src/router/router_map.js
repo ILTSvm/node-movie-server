@@ -9,6 +9,7 @@ module.exports = {
 			userQuery += chunk;
 		})
 		req.on('end', async ()=>{
+      console.log(JSON.parse(userQuery))
 			const result = await api[reqUrl](JSON.parse(userQuery));
 			console.log(result,'result')
 			res.end(JSON.stringify(result));
