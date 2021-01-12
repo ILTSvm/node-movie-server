@@ -1,6 +1,6 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let UserSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
@@ -9,7 +9,7 @@ let UserSchema = new mongoose.Schema({
   password: String,
 })
 
-let UserInfoSchema = new mongoose.Schema({
+const UserInfoSchema = new mongoose.Schema({
   name: String,
   phone: Number,
 })

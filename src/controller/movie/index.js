@@ -6,7 +6,8 @@ let {
 } = require('../../conf/connect')
 
 const findMovieExist = ({ id, name }) => {
-  return id ? MovieModel.find({ id: id }) : MovieModel.find({ name: name });
+  console.log(name, 'movieName')
+  return id ? MovieModel.find({ id }) : MovieModel.find({ name });
 }
 
 const editMovieQuest = async (data, type) => {
@@ -38,13 +39,13 @@ const editMovieQuest = async (data, type) => {
 const getMovieInfoQuest = async (query) => {
   const { id, name } = query;
   const findQuery = id ? { id }: { name };
-  const movieList = await findUserExist(findQuery);
+  const movieList = await findMovieExist(findQuery);
   return id ? movieList[0] : movieList;
 }
 
 const deleteMovieQuest = async (query) => {
   const { id } = query;
-  const movie = await findUserExist({ 
+  const movie = await findMovieExist({ 
     id,
   })[0]
   if (userList.length === 0) {

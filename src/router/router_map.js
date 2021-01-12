@@ -3,7 +3,8 @@ const url = require('url')
 module.exports = {
   commonFlag: '/api',
   requestApi: async (route, req, res) => {
-    const reqUrl = route.substring(4);
+    console.log(route,'route')
+    const reqUrl = route.path.substring(4);
     let userQuery = '';
     req.on('data', chunk => {
 			userQuery += chunk;

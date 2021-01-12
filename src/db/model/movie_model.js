@@ -1,7 +1,7 @@
-let connection = require('../connection');
-let { MovieSchema } = require('../schema/movie_schema');
+const connection = require('../connection');
+const { MovieSchema } = require('../schema/movie_schema');
 
-let MovieModel = connection.model('Movie', MovieSchema);
+const MovieModel = connection.model('Movie', MovieSchema);
 
 module.exports = {
   MovieModel,

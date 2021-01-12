@@ -1,12 +1,9 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-let MovieSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    unique: true,
-    required: true,
-  },
+const MovieSchema = new mongoose.Schema({
+  name: String,
   dec: String,
+  cover: String,
 })
 
 mongoose.set('useCreateIndex', true);
